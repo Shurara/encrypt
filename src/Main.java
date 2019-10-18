@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 //https://www.geeksforgeeks.org/caesar-cipher-in-cryptography/
 //https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html
@@ -7,13 +8,23 @@ public class Main {
     public static void main(String[] args) {
         //String inputString = "we found a treasure!";
         //reverseAlphabetEncrypt(inputString);
-        String inputToShift = "Welcome to hyperskill!";
-        String crypt = "\\jqhtrj%yt%m~ujwxpnqq&";
-        int shift = 5;
-        System.out.println(inputToShift);
+        //String inputToShift = "Welcome to hyperskill!";
+        //String crypt = "\\jqhtrj%yt%m~ujwxpnqq&";
+       // int shift = 5;
+       // System.out.println(inputToShift);
         //shiftEncrypt(inputToShift, shift);
-        encrypt(inputToShift, shift);
-        decrypt(crypt, shift);
+        Scanner sc = new Scanner(System.in);
+        String command = sc.nextLine();
+        String inputString = sc.nextLine();
+        int shift = sc.nextInt();
+
+        if(command.equals("enc")==true){
+            encrypt(inputString, shift);
+        }else if(command.equals("dec")==true){
+            decrypt(inputString, shift);
+        }
+
+
     }
     public static String reverseAlphabetEncrypt(String inputString){
         StringBuilder output = new StringBuilder();
@@ -74,3 +85,48 @@ public class Main {
         return outputString;
     }
 }
+
+/*
+package encryptdecrypt;
+
+        import java.util.*;
+        import java.util.Arrays;
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String command = sc.nextLine();
+        String inputString = sc.nextLine();
+        int shift = sc.nextInt();
+
+        if(command.equals("enc")==true){
+            encrypt(inputString, shift);
+        }else if(command.equals("dec")==true){
+            decrypt(inputString, shift);
+        }
+    }
+    public static String encrypt(String str, int shift){
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            Character symbol = str.charAt(i);
+            output.append((char)(((int)symbol +
+                    shift - 33) % 94 + 33));
+        }
+        String outputString = output.toString();
+        System.out.println(outputString);
+        return outputString;
+    }
+    public static String decrypt(String str, int shift){
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            Character symbol = str.charAt(i);
+            output.append((char)(((int)symbol -
+                    shift - 33) % 94 + 33));
+        }
+        String outputString = output.toString();
+        System.out.println(outputString);
+        return outputString;
+    }
+}*/
