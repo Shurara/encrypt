@@ -1,3 +1,30 @@
+task1
+For the first stage, you need to manually encrypt the message "we found a treasure!" and print only the ciphertext (in lower case).
+To encrypt the message, replace each letter with the letter that is in the corresponding position from the end of the English alphabet (a→z, b→y, c→x, ... x→c, y →b, z→a). Do not replace spaces or the exclamation mark.
+
+Use the given template to your program to print the ciphertext instead of the original message.
+
+The output should look like ## ##### # ########! where # is a lower-case English letter.
+
+
+
+task2
+Write a program that reads an English message and an integer number (key) from the standard input and shifts each letter by the specified number according to its order in the alphabet. If you reach the end of the alphabet, start back at the beginning (a follows z).
+
+The English alphabet is below:
+
+abcdefghijklmnopqrstuvwxyz
+The program should not modify non-letter characters.
+
+The key is assumed to mean that if a person knows the value of the key, he or she will be able to decrypt the text, and if he or she does not know, he or she will not be able to decrypt the text. It's like a real key that can open up access to the message text.
+
+Note, key is just a special parameter that controls the behavior of our encryption algorithm. See the picture below for more information.
+Input example
+welcome to hyperskill
+5
+Output example
+bjqhtrj yt mdujwxpnqq
+
 task3
 Description
 In this stage, you need to support decryption in your program. The decryption is simply the inverse of encryption, following the same steps but reversing the order in which the keys are applied.
