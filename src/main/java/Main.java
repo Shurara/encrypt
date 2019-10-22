@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -13,15 +15,25 @@ public class Main {
        // int shift = 5;
        // System.out.println(inputToShift);
         //shiftEncrypt(inputToShift, shift);
-        Scanner sc = new Scanner(System.in);
-        String command = sc.nextLine();
-        String inputString = sc.nextLine();
-        int shift = sc.nextInt();
 
-        if(command.equals("enc")==true){
-            encrypt(inputString, shift);
-        }else if(command.equals("dec")==true){
-            decrypt(inputString, shift);
+        String mode = "enc";
+        int key = 0;
+        String data = "";
+
+        for(int i = 0; i < args.length; i=i+2){
+            if(args[i].equals("-mode")){
+                mode = args[i + 1];
+            }else if(args[i].equals("-key")) {
+                key = Integer.parseInt(args[i + 1]);
+            }else if(args[i].equals("-data")) {
+                data = args[i + 1];
+            }
+        }
+
+        if(mode.equals("enc")==true){
+            encrypt(data, key);
+        }else if(mode.equals("dec")==true){
+            decrypt(data, key);
         }
 
 
@@ -89,44 +101,49 @@ public class Main {
 /*
 package encryptdecrypt;
 
-        import java.util.*;
-        import java.util.Arrays;
-
-
-
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String command = sc.nextLine();
-        String inputString = sc.nextLine();
-        int shift = sc.nextInt();
 
-        if(command.equals("enc")==true){
-            encrypt(inputString, shift);
-        }else if(command.equals("dec")==true){
-            decrypt(inputString, shift);
+    public static void main(String[] args) {
+        String mode = "enc";
+        int key = 0;
+        String data = "";
+
+        for (int i = 0; i < args.length; i += 2) {
+            if (args[i].equals("-mode")) {
+                mode = args[i+1];
+
+            } else if (args[i].equals("-key")) {
+                key = Integer.parseInt(args[i+1]);
+
+            } else if (args[i].equals("-data")) {
+                data = args[i+1];
+            }
+        }
+
+        switch (mode) {
+            case "enc":
+                getEncryption(data, key);
+                break;
+            case "dec":
+                getDecryption(data, key);
+                break;
+            default:
+                System.out.println("Unknown operation");
+                break;
         }
     }
-    public static String encrypt(String str, int shift){
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < str.length(); i++) {
-            Character symbol = str.charAt(i);
-            output.append((char)(((int)symbol +
-                    shift - 33) % 94 + 33));
+
+    public static void getDecryption(String data, int key) {
+        for (char item : data.toCharArray()) {
+            char shiftItem = (char) (item - key);
+            System.out.print(shiftItem);
         }
-        String outputString = output.toString();
-        System.out.println(outputString);
-        return outputString;
     }
-    public static String decrypt(String str, int shift){
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < str.length(); i++) {
-            Character symbol = str.charAt(i);
-            output.append((char)(((int)symbol -
-                    shift - 33) % 94 + 33));
+
+    public static void getEncryption(String data, int key) {
+        for (char item : data.toCharArray()) {
+            char shiftItem = (char) (item + key);
+            System.out.print(shiftItem);
         }
-        String outputString = output.toString();
-        System.out.println(outputString);
-        return outputString;
     }
 }*/
