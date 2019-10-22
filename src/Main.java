@@ -1,5 +1,3 @@
-package main.java;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -15,7 +13,10 @@ public class Main {
        // int shift = 5;
        // System.out.println(inputToShift);
         //shiftEncrypt(inputToShift, shift);
-
+       // Scanner sc = new Scanner(System.in);
+        //String command = sc.nextLine();
+       // String inputString = sc.nextLine();
+       // int shift = sc.nextInt();
         String mode = "enc";
         int key = 0;
         String data = "";
