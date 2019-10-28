@@ -92,7 +92,7 @@ public class Main {
         if (fileNameOut.isEmpty()) {
             System.out.println(outputString);
         } else {
-            writeToFile(fileNameOut);
+            writeToFile(fileNameOut, outputString);
         }
     }
 
@@ -107,7 +107,7 @@ public class Main {
         if (fileNameOut.isEmpty()) {
             System.out.println(outputString);
         } else {
-            writeToFile(fileNameOut);
+            writeToFile(fileNameOut, outputString);
         }
     }
 
@@ -125,10 +125,11 @@ public class Main {
         return textFromFile;
     }
 
-    public static void writeToFile(String outputFileName) {
+    public static void writeToFile(String outputFileName, String text) {
         FileWriter fileWriter = null;
         try {
             fileWriter = new FileWriter(outputFileName);
+            fileWriter.write(text);
             fileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
