@@ -1,4 +1,4 @@
-package encryptdecrypt;
+
 
 public class UnicodeEncrypt implements Encrypt {
     @Override

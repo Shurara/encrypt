@@ -1,6 +1,3 @@
-package encryptdecrypt;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.FileWriter;

@@ -1,4 +1,4 @@
-package encryptdecrypt;
+
 
 public class ShiftDecrypt implements Decrypt {
 
@@ -10,11 +10,9 @@ public class ShiftDecrypt implements Decrypt {
             if (!Character.isLetter(symbol)) {
                 output.append(symbol);
             } else if (Character.isUpperCase(symbol)) {
-                output.append((char) (((int) symbol +
-                        key + 65) % 26 - 65));
+                output.append((char) (((int) symbol - key - 65) % 26 + 65));
             } else {
-                output.append((char) (((int) symbol +
-                        key + 97) % 26 - 97));
+                output.append((char) (((int) symbol - key - 97) % 26 + 97));
             }
         }
         //System.out.println(outputString);
