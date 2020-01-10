@@ -1,6 +1,6 @@
+package encryptdecrypt.Decryptors;
 
-
-public class UnicodeDecrypt implements Decrypt {
+public class UnicodeDecryptor implements Decryptor {
     @Override
     public String decrypt(String str, int key) {
         String decrStr = "";
